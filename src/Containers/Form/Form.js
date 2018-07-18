@@ -74,21 +74,26 @@ class Form extends Component {
         return name === LOGIN && password === PASSWORD;
     };
 
-    handleSubmit = (event) => {
+    handleSubmit= (event) => {
         event.preventDefault();
         const state = this.state;
         const isFormValid = this.props.fields.reduce((isValid, field) => state[field].valid && isValid, true);
-        if (!this.checkIfUser())
+        if (!this.checkIfUser()) {
             alert("Incorrect login or password!");
-        else if (!isFormValid)
+            return;
+        }
+        else if (!isFormValid) {
             alert("Incorrect login or password!");
+            return;
+        }
+        this.props.validForm()
     };
 
 
     render() {
         return (
             <FormWrapper>
-                <form method="POST" action="" onSubmit={this.handleSubmit}>
+                <form method="POST" action="" onSubmit={this.handleSubmit} >
                     <fieldset>
                         <label htmlFor="email">Email</label>
                         <Input onChange={this.userInputHandler}

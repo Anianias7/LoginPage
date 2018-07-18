@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export default styled.div `
+    visibility: ${props => props.visibility? 'visible' : 'hidden'};
     background: inherit;
     max-width: 50%;
     height: 520px;
