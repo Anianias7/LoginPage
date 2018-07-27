@@ -1,7 +1,6 @@
 import React from 'react'
 import LoginMessageWrapper from "./LoginMessageWrapper";
 
-
 const loginMessage = () => {
 
     return <LoginMessageWrapper>

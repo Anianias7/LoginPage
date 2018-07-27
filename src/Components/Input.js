@@ -9,7 +9,6 @@ const input = (props) => {
             required: props.required
         });
     };
-
     return <input {...props} onChange={(event) => {props.onChange(createConfigObject(event))}}/>
 };
 

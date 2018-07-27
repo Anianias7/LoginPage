@@ -4,10 +4,8 @@ import Input from '../../Components/Input'
 import ValidatorService from '../../services/validators.service'
 import Error from "../Error/Error";
 
-
 const LOGIN = 'test@test.pl';
 const PASSWORD = 'Password1';
-
 
 const createInitialState = (fieldsArray) => {
     return fieldsArray.reduce((acc, val) => {
@@ -23,10 +21,7 @@ const createInitialState = (fieldsArray) => {
     }, {})
 };
 
-
 class Form extends Component {
-
-
     state = {
         ...createInitialState(this.props.fields),
         checked: false
@@ -36,12 +31,9 @@ class Form extends Component {
         let requiredMessage = undefined;
         if (required)
             requiredMessage = ValidatorService.required(value);
-
-
         const msges = validators.reduce((messages, validator) => {
             return messages.concat(validator(value) || []);
         }, []);
-
 
         this.setState(
             {
@@ -53,7 +45,6 @@ class Form extends Component {
                 }
             }
         );
-
     };
 
     onTouched = (event) => {
@@ -88,7 +79,6 @@ class Form extends Component {
         }
         this.props.validForm()
     };
-
 
     render() {
         return (
@@ -127,9 +117,7 @@ class Form extends Component {
                 </form>
             </FormWrapper>
         );
-
     }
-
 }
 
 
